@@ -1,0 +1,23 @@
+
+#include "kt540b.h"
+
+Kt540bClass mp3Play(0,1);    //实例化对象，定义pin5为RX，pin6为TX
+
+
+void setup()
+{
+	mp3Play.begin();        //mp3初始化开始
+	mp3Play.setVolume(100);   //音量设置
+  mp3Play.play(1);       //播放第1首歌曲
+	delay(100000);            //等待，让其播放10秒
+}
+
+void loop()
+{
+  Serial.println(7);
+	mp3Play.pause();         //歌曲暂停
+	mp3Play.playNext();       //播放下首歌曲
+	delay(10000);		     //等待，让其播放10秒
+	mp3Play.stop();         //停止播放歌曲
+
+}
